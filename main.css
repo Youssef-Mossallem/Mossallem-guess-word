@@ -19,13 +19,14 @@ h1 {
   margin: 0 0 50px;
 }
 .guess-game {
-  height: 100%;
-  margin: 20px auto;
-  text-align: center;
-  display: flex;
-  width: 1000px;
-  align-items: flex-start;
-  justify-content: space-between;
+height: 100%;
+    text-align: center;
+    display: flex
+;
+    width: 1000px;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 20px auto;
   .guess-area {
     width: 100%;
     .control {
