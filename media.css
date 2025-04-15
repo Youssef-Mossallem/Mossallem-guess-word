@@ -101,8 +101,17 @@
   .guess-area .control{
     width: auto !important;
   }
+  .guess-game {
+    & .inputs {
+        input {
+            width: 30px;
+            height: 30px;
+            font-size: 25px;
+        }
+    }
+  }
 }
-@media (min-width: 460px){
+@media (min-width: 460px) and (max-width: 767px){
    .guess-game {
     & .inputs {
         input {
