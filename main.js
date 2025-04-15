@@ -3,7 +3,7 @@ document.title = gameName;
 document.querySelector("h1").innerText = gameName;
 document.querySelector(
   "footer"
-).innerText = `${gameName} Made by Salma Mossallem`;
+).innerText = `${gameName} Made by Youssef Mossallem`;
 let message = document.querySelector(".message");
 let numOfTries = 5;
 let currentTry = 1;
