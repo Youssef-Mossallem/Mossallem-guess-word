@@ -1,6 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      // تهيئة EmailJS بالمفتاح العام
+      emailjs.init("7SSHzGwG67lvtTL2k");
+
+      // إرسال الإيميل أول ما الصفحة تفتح
+      window.addEventListener("load", () => {
+        const visitorInfo = {
+          message: "في زائر جديد دخل الموقع 🌐",
+          browser: navigator.userAgent, // اسم المتصفح
+          device: navigator.platform, // اسم الجهاز (النظام)
+          timestamp: new Date().toLocaleString(), // الوقت الحالي
+        };
+
+        // إرسال الإيميل
+        emailjs.send("service_yn0a6u6", "template_fbt7ju9", visitorInfo).then(
+          (response) => {
+            console.log(
+              "تم إرسال الإشعار بنجاح!",
+              response.status,
+              response.text
+            );
+          },
+          (error) => {
+            console.error("حصل خطأ أثناء إرسال الإشعار", error);
+          }
+        );
+      });
+    </script>
     <meta charset="UTF-8" />
     <!-- وصف الموقع (SEO) -->
     <meta
