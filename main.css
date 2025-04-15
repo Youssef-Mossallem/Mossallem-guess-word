@@ -18,14 +18,13 @@ h1 {
   margin: 0 0 50px;
 }
 .guess-game {
-height: 100%;
-    text-align: center;
-    display: flex
-;
-    width: 1000px;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin: 20px auto;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  width: 1000px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 20px auto;
   .guess-area {
     width: 100%;
     .control {
@@ -175,4 +174,15 @@ footer {
   padding: 20px;
   box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
   font-weight: bold;
+}
+h2.level {
+  position: relative;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  left: -50%;
+  transform: translateX(50%);
+  span {
+    color: var(--secondary-color);
+  }
 }
