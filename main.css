@@ -108,6 +108,7 @@ h1 {
 .key-colors {
   .key-color {
     display: flex;
+    flex-direction: column;
     align-items: center;
     padding: 15px;
     background-color: white;
