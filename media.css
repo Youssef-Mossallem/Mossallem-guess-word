@@ -1,0 +1,104 @@
+/* من أول 1024 بكسل نزولًا */
+@media (max-width: 1024px) {
+  .guess-game {
+    width: 100%;
+    padding: 20px;
+    align-items: center;
+  }
+
+  .guess-area .control {
+    gap: 15px;
+  }
+
+  .guess-area .control button {
+    width: 100%;
+    font-size: 20px;
+  }
+
+  .inputs input {
+    width: 45px;
+    height: 45px;
+    font-size: 28px;
+    margin: 0 3px;
+  }
+
+  .key-colors {
+    margin-bottom: 40px;
+    width: 350px;
+    padding: 0 10px;
+  }
+
+  .key-color {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .key-color .key-text {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 26px;
+    padding: 15px;
+  }
+
+  .message {
+    font-size: 22px;
+    padding: 10px;
+  }
+
+  .message button {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  footer {
+    font-size: 14px;
+    padding: 15px;
+    position: static;
+    margin-top: 30px;
+  }
+}
+
+/* موبايل – أقل من 600 بكسل */
+@media (max-width: 600px) {
+  .inputs input {
+    width: 35px;
+    height: 35px;
+    font-size: 22px;
+  }
+
+  .guess-area .control button {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .message {
+    font-size: 18px;
+  }
+
+  .message button {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+}
+@media (max-width: 805px) {
+  .guess-game {
+    flex-direction: column-reverse;
+    .key {
+      margin-bottom: 15px;
+    }
+  }
+}
+@media (max-width: 460px) {
+  .guess-area .control{
+    width: auto !important;
+  }
+}
