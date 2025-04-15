@@ -98,32 +98,32 @@
   }
 }
 @media (max-width: 460px) {
-  .guess-area .control{
+  .guess-area .control {
     width: auto !important;
   }
   .guess-game {
     & .inputs {
-        input {
-            width: 30px;
-            height: 30px;
-            font-size: 25px;
-        }
+      input {
+        width: 30px;
+        height: 30px;
+        font-size: 25px;
+      }
     }
   }
 }
-@media (min-width: 460px) and (max-width: 767px){
-   .guess-game {
+@media (min-width: 460px) and (max-width: 767px) {
+  .guess-game {
     & .inputs {
-        input {
-            width: 45px;
-            height: 45px;
-            font-size: 40px;
-        }
+      input {
+        width: 45px;
+        height: 45px;
+        font-size: 40px;
+      }
     }
   }
 }
-@media (min-width: 810px) {
-  body{
+@media (min-width: 806px) {
+  body {
     height: 100vh;
   }
 }
