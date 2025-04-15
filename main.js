@@ -136,8 +136,6 @@ function generateInputs() {
 const checkbutton = document.querySelector(".check");
 
 checkbutton.addEventListener("click", check);
-
-console.log(wordToGuess);
 function check() {
   let successGuess = true;
   for (let i = 1; i <= numOfLetters; i++) {
