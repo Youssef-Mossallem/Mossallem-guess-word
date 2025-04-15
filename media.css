@@ -122,3 +122,8 @@
     }
   }
 }
+@media (min-width: 810px) {
+  body{
+    height: 100vh;
+  }
+}
