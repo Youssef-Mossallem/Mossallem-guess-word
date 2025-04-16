@@ -1,9 +1,11 @@
-
+localStorage.clear();
 let words = [];
 const fileURL =
   "https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt";
 
-fetch(fileURL)
+fetch(
+  fileURL
+)
   .then((response) => response.text())
   .then((text) => {
     const allWords = text.split("\n");
@@ -121,7 +123,7 @@ fetch(fileURL)
     }
 
     generateInputs();
-console.log(words.length)
+    console.log(words.length);
     const checkbutton = document.querySelector(".check");
     checkbutton.addEventListener("click", check);
 
@@ -147,7 +149,8 @@ console.log(words.length)
 
       if (successGuess) {
         message.innerHTML = `Congratulations! You guessed the word <span>${wordToGuess}</span> <button class="Next word">Next word</button>`;
-        const PlayAgainButton = document.querySelector(".message button");
+        const PlayAgainButton = document.querySelector(".message .Next.word");
+        console.log(PlayAgainButton);
 
         PlayAgainButton.addEventListener("click", playAgain);
 
@@ -181,8 +184,8 @@ console.log(words.length)
           checkbutton.disabled = true;
           hintButton.disabled = true;
           message.innerHTML = `Game Over! The word was <span>${wordToGuess}</span> <button class="play-again">Play Again</button>`;
-          const PlayAgainButton = document.querySelector(".message button");
-          PlayAgainButton.addEventListener("click", playAgain);
+          const PlayAgainButton = document.querySelector(".message .play-again");
+          PlayAgainButton.addEventListener("click", playAgain2);
         }
       }
     }
@@ -207,7 +210,23 @@ console.log(words.length)
 
       generateInputs();
     }
+    function playAgain2() {
+      message.innerHTML = "";
+      document.querySelector(".inputs").innerHTML = "";
+      currentTry = 1;
+      wordToGuess = getNextWord();
+      numOfLetters = wordToGuess.length - 1;
+      numOfHints = 2;
+      h2.innerHTML = `Level ${level + 1}`;
+      document.querySelector(
+        ".hint"
+      ).innerHTML = `<span>${numOfHints}</span> Hints`;
+      hintButton.disabled = false;
+      checkbutton.disabled = false;
+      checkbutton.classList.remove("disabled");
 
+      generateInputs();
+    }
     function hint() {
       if (numOfHints > 0) {
         numOfHints--;
