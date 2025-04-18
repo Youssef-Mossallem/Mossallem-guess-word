@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mossallem-guess-word.vercel.app/sitemap.xml

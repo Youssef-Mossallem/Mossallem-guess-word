@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-852410VKSV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-852410VKSV');
+  </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      // تهيئة EmailJS بالمفتاح العام
+      emailjs.init("7SSHzGwG67lvtTL2k");
+
+      // إرسال الإيميل أول ما الصفحة تفتح
+      window.addEventListener("load", () => {
+        const visitorInfo = {
+          message: "في زائر جديد دخل الموقع 🌐",
+          browser: navigator.userAgent, // اسم المتصفح
+          device: navigator.platform, // اسم الجهاز (النظام)
+          timestamp: new Date().toLocaleString(), // الوقت الحالي
+        };
+
+        // إرسال الإيميل
+        emailjs.send("service_yn0a6u6", "template_fbt7ju9", visitorInfo).then(
+          (response) => {
+            console.log(
+              "تم إرسال الإشعار بنجاح!",
+              response.status,
+              response.text
+            );
+          },
+          (error) => {
+            console.error("حصل خطأ أثناء إرسال الإشعار", error);
+          }
+        );
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <!-- وصف الموقع (SEO) -->
+    <meta
+      name="keywords"
+      content="Guess Game, تخمين الكلمات, ألعاب ذكاء, لعبة بالعربي, HTML CSS JS Game, يوسف مسلم, Mossallem-guess-word, لعبة تخمين الكلمات, Youssef Mossallem, ألعاب ذكاء, ألعاب ترفيهية, ألعاب تعليمية, ألعاب تفاعلية, ألعاب للأطفال, ألعاب للكبار, ألعاب جماعية, ألعاب فردية, ألعاب مجانية, ألعاب أونلاين, ألعاب بدون تحميل"
+    />
+
+    <!-- الكلمات المفتاحية (SEO) -->
+    <meta
+      name="keywords"
+      content="Guess Game, تخمين الكلمات, ألعاب ذكاء, لعبة بالعربي, HTML CSS JS Game, يوسف مسلم"
+    />
+
+    <!-- اسم صاحب الموقع -->
+    <meta name="author" content="Youssef Mossallem" />
+
+    <!-- منع جوجل من توليد snippet عشوائي -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- لون التبويبة في الموبايل (Chrome, Android) -->
+    <meta name="theme-color" content="#3498db" />
+
+    <!-- شكل المشاركة على الفيس بوك (Open Graph) -->
+    <meta property="og:title" content="Guess the Word - لعبة تخمين الكلمات" />
+    <meta
+      property="og:description"
+      content="جرب لعبة Guess The Word المجانية من تصميم يوسف مسلم، واثبت مهاراتك في التخمين!"
+    />
+    <meta
+      property="og:image"
+      content="https://youssef-mossallem.github.io/Mossallem-guess-word/cover.png"
+    />
+    <meta
+      property="og:url"
+      content="https://youssef-mossallem.github.io/Mossallem-guess-word/"
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- شكل المشاركة على تويتر -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Guess the Word - لعبة تخمين الكلمات" />
+    <meta
+      name="twitter:description"
+      content="لعبة مجانية لتخمين الكلمات - من تصميم يوسف مسلم"
+    />
+    <meta
+      name="twitter:image"
+      content="https://youssef-mossallem.github.io/Mossallem-guess-word/cover.png"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title></title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="media.css" />
+    <style>
+      .alert-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+
+      .alert-box {
+        background-color: white;
+        padding: 20px 30px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 0.3s ease;
+      }
+
+      .alert-box p {
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+
+      .alert-box button {
+        padding: 8px 16px;
+        border: none;
+        background-color: #3498db;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .alert-box button:hover {
+        background-color: #2980b9;
+      }
+
+      @keyframes fadeIn {
+        from {
+          transform: scale(0.9);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="customAlert" class="alert-container">
+      <div class="alert-box">
+        <p>
+          Before you press the hint button, write the letters in their correct
+          place, and they are correct.
+        </p>
+        <p>
+          قبل أن تضغط على زر التلميح، قم بكتابة الحروف الي مكانها صحيح وهي
+          صحيحة.
+        </p>
+        <button onclick="closeAlert()">OK</button>
+      </div>
+    </div>
+    <h1></h1>
+    <h2 class="level"></h2>
+    <div class="timer"></div>
+    <div class="guess-game">
+      <div class="guess-area">
+        <div class="inputs"></div>
+        <div class="control">
+          <button class="check">Check word</button>
+          <button class="hint"><span></span>Hint</button>
+        </div>
+        <div class="message"></div>
+      </div>
+      <div class="key-colors">
+        <h2>Key color</h2>
+        <div class="key-color">
+          <div class="key in-place"></div>
+          <div class="key-text">Letter is correct and in place</div>
+        </div>
+        <div class="key-color">
+          <div class="key not-in-place"></div>
+          <div class="key-text">Letter is correct but not in place</div>
+        </div>
+        <div class="key-color">
+          <div class="key wrong"></div>
+          <div class="key-text">Letter is wrong</div>
+        </div>
+      </div>
+    </div>
+    <footer></footer>
+    <script>
+      function showAlert() {
+        document.getElementById("customAlert").style.display = "flex";
+      }
+
+      function closeAlert() {
+        document.getElementById("customAlert").style.display = "none";
+      }
+
+      // نعرض التنبيه أول ما الصفحة تفتح
+      window.addEventListener("DOMContentLoaded", showAlert);
+    </script>
+    <script src="main.js"></script>
+  </body>
+</html>
