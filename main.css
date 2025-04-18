@@ -186,3 +186,27 @@ h2.level {
     color: var(--secondary-color);
   }
 }
+.timer {
+  text-align: center;
+  font-size: 30px;
+}
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-3px);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+  75% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.shake {
+  animation: shake 0.3s ease;
+}
