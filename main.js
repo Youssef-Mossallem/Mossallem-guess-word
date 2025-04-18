@@ -1,10 +1,15 @@
 let words = [];
+let wrongSound = new Audio("sounds/cartoon-trombone-sound-effect-241387.mp3");
+let correctSound = new Audio("sounds/the-correct-answer-33-183620.mp3");
+let Until100S = new Audio("sounds/clock-ticking-sound-effect-240503.mp3");
+let timerSpan = document.querySelector(".timer");
+let timeLeft = 36;
+let timer; // <-- متغير التايمر العالمي
+
 const fileURL =
   "https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt";
 
-fetch(
-  fileURL
-)
+fetch(fileURL)
   .then((response) => response.text())
   .then((text) => {
     const allWords = text.split("\n");
@@ -141,15 +146,25 @@ fetch(
           inputField.classList.add("not-in-place");
           successGuess = false;
         } else {
+          document.querySelector(`.try-${currentTry}`).classList.add("shake");
+          setTimeout(() => {
+            document
+              .querySelector(`.try-${currentTry}`)
+              .classList.remove("shake");
+          }, 300);
+
           inputField.classList.add("wrong");
           successGuess = false;
         }
       }
 
       if (successGuess) {
+        document.body.style.backgroundColor = "green"; // أخضر فاتح
+        clearInterval(timer); // نوقف التايمر
         message.innerHTML = `Congratulations! You guessed the word <span>${wordToGuess}</span> <button class="Next word">Next word</button>`;
         const PlayAgainButton = document.querySelector(".message .Next.word");
         console.log(PlayAgainButton);
+        correctSound.play();
 
         PlayAgainButton.addEventListener("click", playAgain);
 
@@ -163,6 +178,7 @@ fetch(
         hintButton.disabled = true;
       } else {
         document.querySelector(`.try-${currentTry}`).classList.add("disabled");
+
         document
           .querySelectorAll(`.try-${currentTry} input`)
           .forEach((input) => {
@@ -179,17 +195,64 @@ fetch(
               input.disabled = false;
             });
         } else {
+          document.body.style.backgroundColor = "red"; // أحمر فاتح
+
+          clearInterval(timer); // نوقف التايمر
           checkbutton.classList.add("disabled");
           checkbutton.disabled = true;
           hintButton.disabled = true;
           message.innerHTML = `Game Over! The word was <span>${wordToGuess}</span> <button class="play-again">Play Again</button>`;
-          const PlayAgainButton = document.querySelector(".message .play-again");
+          const PlayAgainButton = document.querySelector(
+            ".message .play-again"
+          );
+          wrongSound.play();
           PlayAgainButton.addEventListener("click", playAgain2);
         }
       }
     }
 
+    function startTimer() {
+      clearInterval(timer); // نوقف التايمر القديم
+      timeLeft = 36;
+      timerSpan.innerText = `⏱️ ${timeLeft}s`;
+
+      timer = setInterval(() => {
+        timeLeft--;
+        timerSpan.innerText = `⏱️ ${timeLeft}s`;
+        if (timeLeft === 0) {
+          Until100S.pause();
+          clearInterval(timer);
+          let el = document.querySelector(`.try-${currentTry}`);
+          el.classList.add("disabled");
+          el.querySelector("input").focus();
+          document
+            .querySelectorAll(`.try-${currentTry} input`)
+            .forEach((input) => {
+              input.disabled = true;
+            });
+          checkbutton.classList.add("disabled");
+          checkbutton.disabled = true;
+          hintButton.disabled = true;
+          message.innerHTML = `Game Over! The word was <span>${wordToGuess}</span> <button class="play-again">Play Again</button>`;
+          const PlayAgainButton = document.querySelector(
+            ".message .play-again"
+          );
+          PlayAgainButton.addEventListener("click", playAgain2);
+        }
+        if (timeLeft <= 10) {
+          timerSpan.style.color = "red";
+          Until100S.play();
+        }
+      }, 1000);
+    }
+
+    startTimer();
     function playAgain() {
+      document.body.style.backgroundColor = "";
+      timerSpan.style.color = "black";
+      clearInterval(timer);
+      startTimer();
+      timeLeft = 36;
       level++;
       localStorage.setItem("level", level);
 
@@ -209,8 +272,15 @@ fetch(
 
       generateInputs();
     }
+
     function playAgain2() {
+      document.body.style.backgroundColor = "";
+      timerSpan.style.color = "black";
+
+      clearInterval(timer);
+      startTimer();
       message.innerHTML = "";
+      timeLeft = 36;
       document.querySelector(".inputs").innerHTML = "";
       currentTry = 1;
       wordToGuess = getNextWord();
@@ -226,6 +296,7 @@ fetch(
 
       generateInputs();
     }
+
     function hint() {
       if (numOfHints > 0) {
         numOfHints--;
