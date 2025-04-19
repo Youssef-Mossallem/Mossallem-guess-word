@@ -166,7 +166,8 @@ fetch(fileURL)
       if (successGuess) {
         document.body.style.backgroundColor = "green"; // أخضر فاتح
         clearInterval(timer); // نوقف التايمر
-        message.innerHTML = `Congratulations! You guessed the word <span>${wordToGuess}</span> <button class="Next word">Next word</button>`;
+        message.innerHTML = `Congratulations! You guessed the word <span>${wordToGuess}</span> <button class="Next word">Next word</button> 
+        <button class="buy"><a href="https://www.amazon.com/Anker-PowerCore-Magnetic-Slim-B2C/dp/B099284SRR?crid=2M1X0LE8OJTH5&dib=eyJ2IjoiMSJ9.lxNSf2Yxv5Ot-SBsqBJDwzLkLXutdQwK1YxrOndyOpUAHLBrjdVYib178cOMkQ2ZResGDM1lSYlA58ViPP_xT8R9Qc2JNSDl8l-pcfxpZhQBtG9z2mgtHsdnoS_NVluS0K2c_RAvP45S9FlMXcpUMBUqlrhZJqQyqmwuzLNe4DExTKAFJcI5wYCMXh8ldN6EmLsMvWdn7uYI1K7_XS-rEc1EkGlaEGOHpErrZNGcteo.HGBDJA2PNNAkc3izCPiGqux659x8q-Eo4NDldR6IRrs&dib_tag=se&keywords=power%2Bbank&qid=1745063154&sprefix=powe%2Caps%2C359&sr=8-8&th=1&linkCode=ll1&tag=mossallem20-20&linkId=4af0ca1e17f3033bec257d95d66b3319&language=en_US&ref_=as_li_ss_tl" target="_blank">Buy Powerbank</a></button>`;
         const PlayAgainButton = document.querySelector(".message .Next.word");
         console.log(PlayAgainButton);
         correctSound.play();
@@ -206,7 +207,7 @@ fetch(fileURL)
           checkbutton.classList.add("disabled");
           checkbutton.disabled = true;
           hintButton.disabled = true;
-          message.innerHTML = `Game Over! The word was <span>${wordToGuess}</span> <button class="play-again">Play Again</button>`;
+          message.innerHTML = `Game Over! The word was <span>${wordToGuess}</span> <button class="play-again">Play Again</button><button class="buy"><a href="https://www.amazon.com/Anker-PowerCore-Magnetic-Slim-B2C/dp/B099284SRR?crid=2M1X0LE8OJTH5&dib=eyJ2IjoiMSJ9.lxNSf2Yxv5Ot-SBsqBJDwzLkLXutdQwK1YxrOndyOpUAHLBrjdVYib178cOMkQ2ZResGDM1lSYlA58ViPP_xT8R9Qc2JNSDl8l-pcfxpZhQBtG9z2mgtHsdnoS_NVluS0K2c_RAvP45S9FlMXcpUMBUqlrhZJqQyqmwuzLNe4DExTKAFJcI5wYCMXh8ldN6EmLsMvWdn7uYI1K7_XS-rEc1EkGlaEGOHpErrZNGcteo.HGBDJA2PNNAkc3izCPiGqux659x8q-Eo4NDldR6IRrs&dib_tag=se&keywords=power%2Bbank&qid=1745063154&sprefix=powe%2Caps%2C359&sr=8-8&th=1&linkCode=ll1&tag=mossallem20-20&linkId=4af0ca1e17f3033bec257d95d66b3319&language=en_US&ref_=as_li_ss_tl" target="_blank"  >Buy Powerbank</a></button>`;
           const PlayAgainButton = document.querySelector(
             ".message .play-again"
           );
