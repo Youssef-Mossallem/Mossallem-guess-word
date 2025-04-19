@@ -30,7 +30,12 @@ fetch(fileURL)
     let gameName = "Guess the word";
     let h2 = document.querySelector("h2");
     document.title = gameName;
-    document.querySelector("h1").innerText = gameName;
+    document.querySelector("h1").innerHTML = `${gameName}
+          <ul class="links">
+        <li><a href="About.html" target="_blank">About</a></li>
+        <li><a href="Contact.html" target="_blank">Contact</a></li>
+        <li><a href="privacy.html" target="_blank">Terms&Privacy</a></li>
+      </ul>`;
     document.querySelector(
       "footer"
     ).innerText = `${gameName} Made by Youssef Mossallem`;
