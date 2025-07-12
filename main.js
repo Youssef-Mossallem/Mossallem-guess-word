@@ -226,9 +226,10 @@ fetch(fileURL)
         timeLeft--;
         timerSpan.innerText = `⏱️ ${timeLeft}s`;
         if (timeLeft === 0) {
-          wrongSound.play()
           Until100S.pause();
           clearInterval(timer);
+          wrongSound.play();
+          document.body.style.backgroundColor = "red";
           let el = document.querySelector(`.try-${currentTry}`);
           el.classList.add("disabled");
           el.querySelector("input").focus();
