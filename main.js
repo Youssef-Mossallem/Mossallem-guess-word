@@ -226,6 +226,7 @@ fetch(fileURL)
         timeLeft--;
         timerSpan.innerText = `⏱️ ${timeLeft}s`;
         if (timeLeft === 0) {
+          wrongSound.play()
           Until100S.pause();
           clearInterval(timer);
           let el = document.querySelector(`.try-${currentTry}`);
