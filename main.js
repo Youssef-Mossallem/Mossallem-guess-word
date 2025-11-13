@@ -3,7 +3,7 @@ let wrongSound = new Audio("sounds/cartoon-trombone-sound-effect-241387.mp3");
 let correctSound = new Audio("sounds/the-correct-answer-33-183620.mp3");
 let Until100S = new Audio("sounds/clock-ticking-sound-effect-240503.mp3");
 let timerSpan = document.querySelector(".timer");
-let timeLeft = 36;
+let timeLeft = 40;
 let timer; // <-- متغير التايمر العالمي
 
 const fileURL =
